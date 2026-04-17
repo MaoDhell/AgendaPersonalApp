@@ -11,7 +11,7 @@ export const getTasks = async () => {
 
     }catch (error){
         console.error("Error al obtener las tareas: ", error);
-        //Retorna un array vacio en caso de error
+        //Retorna un array vacio en caso de error en el UI
         return [];
     }
 }
