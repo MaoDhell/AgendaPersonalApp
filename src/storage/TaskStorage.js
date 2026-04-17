@@ -23,7 +23,9 @@ export const deleteTask = async (taskId) => {
         const tasks = await getTasks();
         //filtra la lista de tareas para excluir la tarea que coincide con el taskId proporcionado, 
         //creando una nueva lista updatedTasks que contiene todas las tareas excepto la que se desea eliminar.
-        const updatedTasks = tasks.filter((tasks)=> tasks.id !== taskId);
+        const updatedTasks = tasks.filter((task)=> task.id !== taskId);
+
+        await saveTask[updateTasks];
 
         //actualiza el almacenamiento de tareas con la nueva lista updatedTasks utilizando AsyncStorage.setItem,
         return updatedTasks;
@@ -44,4 +46,38 @@ export const clearAllTasks = async () => {
         console.error("Error al eliminar TODAS las tareas: ",error)
         return null;
     }
+}
+
+//-------- SAVE TASK  Guarda la informacion actualizada 
+export const saveTask = async (tasks) => {
+    try{
+        JSON.stringify(tasks);
+        await AsyncStorage.setItem(TASKS_STORAGE_KEY,jsonValue);
+        return true;
+
+    }catch(error){
+        console.error("Error al guardar la tarea: ",error)
+        return null;
+    }
+}
+
+// -------------------------- METODO AGREGAR 
+export const addTask = async (task) => {
+    try{
+        const tasks = await getTasks();
+        const updateTasks = [task, ...tasks]
+
+        await saveTask[updateTasks];
+
+        return updateTasks;
+
+    }catch(error){
+        console.error("No se pudo agregar la tarea: ", error)
+        return null;
+    }
+}
+
+//---------- METODO UPDATE
+export const updateTask = async () => {
+    
 }

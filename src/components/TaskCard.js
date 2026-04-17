@@ -27,7 +27,7 @@ const TaskCard = ({task, onEdit, onDelete}) => {
             </View>
             <View>
                 <TouchableOpacity onPress={handleDelete} classname="p-1">
-                    <Icon name="trash-can-outLine" color={COLORS.danger} size={20}/>
+                    <Icon name="trash-can-outline" color={COLORS.danger} size={20}/>
                 </TouchableOpacity>
             </View>
         </TouchableOpacity>
